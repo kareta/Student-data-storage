@@ -110,6 +110,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="database_engine.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="student.cpp" />
+    <ClCompile Include="student_dao_text.cpp" />
+    <ClCompile Include="utils.cpp" />
+    <ClCompile Include="validator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="database_engine.h" />
+    <ClInclude Include="exception.h" />
+    <ClInclude Include="invalid_student_exception.h" />
+    <ClInclude Include="student.h" />
+    <ClInclude Include="student_dao.h" />
+    <ClInclude Include="student_dao_text.h" />
+    <ClInclude Include="utils.h" />
+    <ClInclude Include="validator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

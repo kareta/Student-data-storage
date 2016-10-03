@@ -1,11 +1,14 @@
 #ifndef VALIDATOR_H
 #define VALIDATOR_H
 
-class Validator {
+#include <string>
+
+class StudentValidator {
 public:
 
-    virtual ~Validator() {}
+    virtual ~StudentValidator() {}
 
+    static const int NUMBER_OF_PROPERTIES;
     static const std::string NAME_PATTERN;
     static const std::string PASSPORT_PATTERN;
     static const std::string STUDENT_CARD_PATTERN;

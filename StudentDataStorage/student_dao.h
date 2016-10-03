@@ -7,10 +7,10 @@
 
 class StudentDao {
 public:
-	virtual ~StudentDao() {}
-	virtual std::vector<Student> findWhere(const std::string& propertyName, const std::string& value) = 0;
-	virtual std::vector<Student> all() = 0;
-	virtual void save(const Student& student) = 0;
+    virtual ~StudentDao() {}
+    virtual std::vector<Student> findWhere(const std::string& propertyName, const std::string& value) = 0;
+    virtual std::vector<Student> all() = 0;
+    virtual void save(const Student& student) = 0;
 };
 
 #endif

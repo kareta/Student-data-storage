@@ -8,8 +8,8 @@ class InvalidStudentException: public Exception
 {
 public:
 
-	explicit InvalidStudentException(const std::string& message) : Exception(message) {}
-	virtual ~InvalidStudentException() {}
+    explicit InvalidStudentException(const std::string& message) : Exception(message) {}
+    virtual ~InvalidStudentException() {}
 };
 
 #endif

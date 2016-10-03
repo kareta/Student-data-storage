@@ -115,7 +115,7 @@
     <ClCompile Include="student.cpp" />
     <ClCompile Include="student_dao_text.cpp" />
     <ClCompile Include="utils.cpp" />
-    <ClCompile Include="validator.cpp" />
+    <ClCompile Include="student_validator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="database_engine.h" />
@@ -125,7 +125,7 @@
     <ClInclude Include="student_dao.h" />
     <ClInclude Include="student_dao_text.h" />
     <ClInclude Include="utils.h" />
-    <ClInclude Include="validator.h" />
+    <ClInclude Include="student_validator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

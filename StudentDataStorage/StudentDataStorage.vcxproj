@@ -23,6 +23,7 @@
     <ClCompile Include="src\data\engine\database_engine.cpp" />
     <ClCompile Include="src\data\entities\student.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ui\student_ui.cpp" />
     <ClCompile Include="src\utils\utils.cpp" />
     <ClCompile Include="src\validators\student_validator.cpp" />
   </ItemGroup>
@@ -33,6 +34,7 @@
     <ClInclude Include="src\data\entities\student.h" />
     <ClInclude Include="src\exceptions\exception.h" />
     <ClInclude Include="src\exceptions\invalid_student_exception.h" />
+    <ClInclude Include="src\ui\student_ui.h" />
     <ClInclude Include="src\utils\utils.h" />
     <ClInclude Include="src\validators\student_validator.h" />
   </ItemGroup>

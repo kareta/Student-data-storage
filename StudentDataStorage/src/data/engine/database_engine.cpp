@@ -1,6 +1,7 @@
 #include "database_engine.h"
+
 #include <string>
-#include  <iostream>
+#include <iostream>
 
 namespace data { namespace engine {
 

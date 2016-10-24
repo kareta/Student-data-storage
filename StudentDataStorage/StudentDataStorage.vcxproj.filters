@@ -15,48 +15,48 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="database_engine.cpp">
+    <ClCompile Include="src\data\dao\student_dao_text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\data\engine\database_engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="student.cpp">
+    <ClCompile Include="src\data\entities\student.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="utils.cpp">
+    <ClCompile Include="src\utils\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="student_dao_text.cpp">
+    <ClCompile Include="src\validators\student_validator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="student_validator.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="database_engine.h">
+    <ClInclude Include="src\data\dao\student_dao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="student.h">
+    <ClInclude Include="src\data\dao\student_dao_text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="utils.h">
+    <ClInclude Include="src\data\engine\database_engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="exception.h">
+    <ClInclude Include="src\data\entities\student.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="invalid_student_exception.h">
+    <ClInclude Include="src\exceptions\exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="student_dao_text.h">
+    <ClInclude Include="src\exceptions\invalid_student_exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="student_dao.h">
+    <ClInclude Include="src\utils\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="student_validator.h">
+    <ClInclude Include="src\validators\student_validator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

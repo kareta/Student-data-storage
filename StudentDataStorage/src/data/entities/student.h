@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <string>
 
 
 namespace data { namespace entities {
@@ -21,6 +20,7 @@ namespace data { namespace entities {
             const double& weight, const std::string& studentCard, const std::string& passport
         );
         explicit Student();
+        explicit Student(const std::string& studentData);
         virtual ~Student() {}
 
         std::string getName() const;
@@ -45,11 +45,9 @@ namespace data { namespace entities {
 
         friend std::ostream& operator<<(std::ostream& output, const Student& student);
         friend std::ostream& operator<<(std::ostream& output, const std::vector<Student>& students);
-        friend std::istream& operator >> (std::istream& input, Student& student);
+        friend std::istream& operator>>(std::istream& input, Student& student);
 
-        static std::vector<Student> getWithIdealWeight(const std::vector<Student>& students);
-        static std::string convertToString(const Student& student);
-        static Student convertToStudent(const std::string& row);
+        std::string toString() const;
     };
 
 }}

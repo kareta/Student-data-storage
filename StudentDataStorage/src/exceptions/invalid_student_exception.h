@@ -1,7 +1,6 @@
 #ifndef INVALID_STUDENT_EXCEPTION_H
 #define INVALID_STUDENT_EXCEPTION_H
 
-#include <string>
 #include "exception.h"
 
 namespace exceptions {

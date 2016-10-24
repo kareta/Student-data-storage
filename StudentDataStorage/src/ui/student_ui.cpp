@@ -2,47 +2,43 @@
 
 #include "../data/dao/student_dao_text.h"
 #include "../data/entities/student.h"
-#include "../utils/utils.h"
 #include "../exceptions/invalid_student_exception.h"
 
 #include <iostream>
 
 namespace ui {
 
-    void StudentUi::run() {
-        std::string tablePath = "C:\\Users\\vitya\\student";
-        data::dao::StudentDaoText dao(tablePath);
-        std::vector<data::entities::Student> students;
-
+    void StudentUi::run() {     
         std::cout << "Students number to input: ";
         auto studentsNumber = 0;
         std::cin >> studentsNumber;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-        inputStudentNTimes(dao, studentsNumber);
-        dao >> students;
-        auto numberOfIdealWight = data::entities::Student::getWithIdealWeight(students).size();
-        std::cout << "There are " << numberOfIdealWight << " students with ideal weight\n\n";
+        inputStudentNTimes(studentsNumber);
+
+        auto numberWithIdealWeight = studentService.numberWithIdealWeight();
+
+        std::cout << "There are " << numberWithIdealWeight << " students with ideal weight\n\n";
         std::cout << "List of all students in the database:\n";
-        std::cout << students;
+        std::cout << studentService.allStudentsToString();
 
         getchar();
     }
 
-    void StudentUi::inputStudent(data::dao::StudentDaoText& dao) {
-        data::entities::Student student;
-        std::cin >> student;
+    void StudentUi::inputStudent() {
+        std::string studentData;
+        std::cin >> studentData;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        dao << student;
+        studentService.storeFromString(studentData);
     }
 
-    void StudentUi::inputStudentNTimes(data::dao::StudentDaoText& dao, const int& studentsNumber) {
+    void StudentUi::inputStudentNTimes(const int& studentsNumber) {
         system("chcp 1251");
         std::cout << "Type student data\n";
         std::cout << "Format <name> <surname> <height> <weight> <identityCode> <passport>\n";
         for (auto i = 0; i < studentsNumber; i++) {
             try {
-                inputStudent(dao);
+                inputStudent();
             }
             catch (exceptions::InvalidStudentException& e) {
                 std::cout << e.what() << "\n";

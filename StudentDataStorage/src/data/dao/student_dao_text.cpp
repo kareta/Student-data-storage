@@ -2,6 +2,8 @@
 #include <sstream>
 #include "../../exceptions/invalid_student_exception.h"
 
+using namespace data::entities;
+
 namespace data { namespace dao {
 
     StudentDaoText::StudentDaoText(const std::string& tablePath)
@@ -28,7 +30,8 @@ namespace data { namespace dao {
         for (auto &row : rows)
         {
             try {
-                students.push_back(entities::Student::convertToStudent(row));
+                Student student(row);
+                students.push_back(student);
             }
             catch (const exceptions::InvalidStudentException& e) {
 
@@ -43,7 +46,8 @@ namespace data { namespace dao {
         for (auto &row : rows)
         {
             try {
-                students.push_back(entities::Student::convertToStudent(row));
+                Student student(row);
+                students.push_back(student);
             }
             catch (const exceptions::InvalidStudentException& e) {
 
@@ -55,13 +59,13 @@ namespace data { namespace dao {
 
     void StudentDaoText::save(const entities::Student& student) {
         databaseEngine->createIfNotExists(tablePath, columns);
-        databaseEngine->insert(tablePath, entities::Student::convertToString(student));
+        databaseEngine->insert(tablePath, student.toString());
     }
 
     void StudentDaoText::saveUnsafe(const entities::Student& student) const
     {
         databaseEngine->createIfNotExists(tablePath, columns);
-        databaseEngine->insertUnsafe(tablePath, entities::Student::convertToString(student));
+        databaseEngine->insertUnsafe(tablePath, student.toString());
     }
 
     void StudentDaoText::closeUnsafeSaving() const

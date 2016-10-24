@@ -1,5 +1,7 @@
-#include <sstream>
 #include "student.h"
+
+#include <sstream>
+
 #include "../../validators/student_validator.h"
 #include "../../exceptions/invalid_student_exception.h"
 #include "../../utils/utils.h"
@@ -29,6 +31,19 @@ namespace data { namespace entities {
         setWeight(70);
         setStudentCard("ÒÒ00000000");
         setPassport("ÀÀ000000");
+    }
+
+    Student::Student(const std::string& studentData) {
+        auto values = split(studentData, ' ');
+        if (values.size() != StudentValidator::NUMBER_OF_PROPERTIES) {
+            throw InvalidStudentException("Incorrect string");
+        }
+        setName(values[0]);
+        setSurname(values[1]);
+        setHeight(std::stod(values[2]));
+        setWeight(std::stod(values[3]));
+        setStudentCard(values[4]);
+        setPassport(values[5]);
     }
 
 
@@ -129,45 +144,20 @@ namespace data { namespace entities {
     std::istream& operator >> (std::istream& input, Student& student) {
         std::string studentData;
         getline(input, studentData);
-        student = Student::convertToStudent(studentData);
+        Student studentFromString(studentData);
+        student = studentFromString;
         return input;
     }
 
-    std::vector<Student> Student::getWithIdealWeight(const std::vector<Student>& students) {
-        std::vector<Student> withIdealWeight;
-        for (const auto& student : students) {
-            bool weightIsIdeal = (student.getHeight() - student.getWeight()) == 110;
-            if (weightIsIdeal) {
-                withIdealWeight.push_back(student);
-            }
-        }
-        return withIdealWeight;
-    }
-
-    Student Student::convertToStudent(const std::string& row) {
-        auto values = split(row, ' ');
-        if (values.size() != StudentValidator::NUMBER_OF_PROPERTIES) {
-            throw InvalidStudentException("Incorrect string");
-        }
-        auto name = values[0];
-        auto surname = values[1];
-        auto height = stod(values[2]);
-        auto weight = stod(values[3]);
-        auto studentCard = values[4];
-        auto passport = values[5];
-        Student student(name, surname, height, weight, studentCard, passport);
-        return student;
-    }
-
-    std::string Student::convertToString(const Student& student) {
+    std::string Student::toString() const {
         std::string row;
         std::ostringstream convertedHeightWeight;
-        convertedHeightWeight << student.getHeight() << " " << student.getWeight();
-        row.append(student.getName() + " ");
-        row.append(student.getSurname() + " ");
+        convertedHeightWeight << getHeight() << " " << getWeight();
+        row.append(getName() + " ");
+        row.append(getSurname() + " ");
         row.append(convertedHeightWeight.str() + " ");
-        row.append(student.getStudentCard() + " ");
-        row.append(student.getPassport());
+        row.append(getStudentCard() + " ");
+        row.append(getPassport());
         return row;
     }
 }}
